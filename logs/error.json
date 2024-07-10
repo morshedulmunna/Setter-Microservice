@@ -1,0 +1,8 @@
+{
+  "errorId": 1720613632654,
+  "status": "error",
+  "statusCode": 500,
+  "url": "/api/v1",
+  "message": "Server Error",
+  "timestamp": "2024-07-10T12:13:52.654Z"
+}
