@@ -5,6 +5,8 @@ const cookieParser = require("cookie-parser");
 const routes = require("./routes");
 const { globalErrorHandler, AppError } = require("./libs/error");
 const mongoose = require("mongoose");
+const morgan = require("morgan");
+const errorLogStream = require("./logs");
 
 const port = process.env.PORT || 8080;
 
@@ -39,6 +41,18 @@ app.all("/*", (req, res, next) => {
   );
   next(error);
 });
+
+// Create a write stream (in append mode) for the error log file
+
+// Configure Morgan to log errors
+app.use(
+  morgan("combined", {
+    stream: errorLogStream,
+    skip: function (req, res) {
+      return res.statusCode < 400;
+    },
+  })
+);
 
 // Global error handling middleware
 app.use(globalErrorHandler);
