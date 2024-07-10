@@ -19,18 +19,19 @@ const globalErrorHandler = (err, req, res, next) => {
   // Create a unique error ID
   const errorId = new Date().getTime();
 
-  // Log error details to the error log file
-  const errorLogDetails = `
-    Error ID: ${errorId}
-    Status: ${err.status}
-    StatusCode: ${err.statusCode}
-    URL: ${req.originalUrl}
-    Message: ${err.message}
-    Stack: ${err.stack}
-    Timestamp: ${new Date().toISOString()}
-  `;
+  const errorLogDetails = {
+    errorId: errorId,
+    status: err.status,
+    statusCode: err.statusCode,
+    url: req.originalUrl,
+    message: err.message,
+    timestamp: new Date().toISOString(),
+  };
 
-  errorLogStream.write(errorLogDetails);
+  const errorLogString = JSON.stringify(errorLogDetails, null, 2);
+  //Stack: ${err.stack}
+
+  errorLogStream.write(errorLogString);
 
   if (err.isOperational) {
     res.status(err.statusCode).json({
