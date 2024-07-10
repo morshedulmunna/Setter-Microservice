@@ -18,6 +18,7 @@ const globalErrorHandler = (err, req, res, next) => {
   if (err.isOperational) {
     res.status(err.statusCode).json({
       status: err.status,
+      statusCode: err.statusCode,
       message: err.message,
     });
   } else {
@@ -26,6 +27,7 @@ const globalErrorHandler = (err, req, res, next) => {
 
     res.status(500).json({
       status: "error",
+      statusCode: 500,
       message: "Something went very wrong!",
     });
   }

@@ -3,7 +3,7 @@ const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const routes = require("./routes");
-const { globalErrorHandler } = require("./libs/error");
+const { globalErrorHandler, AppError } = require("./libs/error");
 const mongoose = require("mongoose");
 
 const port = process.env.PORT || 8080;
@@ -27,14 +27,16 @@ const connectDatabase = async () => {
     setTimeout(connectDatabase, 5000);
   }
 };
-connectDatabase();
+// connectDatabase();
 // Routes
 routes(app);
 
 // Middleware to catch undefined routes
 app.all("/*", (req, res, next) => {
-  const error = new Error(`Can't find ${req.originalUrl} on this server!`);
-  error.status = 404;
+  const error = new AppError(
+    `Can't find ${req.originalUrl} on this server!`,
+    404
+  );
   next(error);
 });
 
