@@ -42,8 +42,6 @@ app.all("/*", (req, res, next) => {
   next(error);
 });
 
-// Create a write stream (in append mode) for the error log file
-
 // Configure Morgan to log errors
 app.use(
   morgan("combined", {

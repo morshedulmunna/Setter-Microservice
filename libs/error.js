@@ -29,7 +29,6 @@ const globalErrorHandler = (err, req, res, next) => {
   };
 
   const errorLogString = JSON.stringify(errorLogDetails, null, 2);
-  //Stack: ${err.stack}
 
   errorLogStream.write(errorLogString);
 
