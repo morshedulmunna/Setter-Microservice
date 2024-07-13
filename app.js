@@ -29,7 +29,7 @@ const connectDatabase = async () => {
     setTimeout(connectDatabase, 5000);
   }
 };
-// connectDatabase();
+connectDatabase();
 // Routes
 routes(app);
 
