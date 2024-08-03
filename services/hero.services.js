@@ -8,8 +8,6 @@ exports.createHero = async (req, res) => {
     const { tagline, tittle, subTittle } = req.body;
     const image = req.file;
 
-    console.log(image);
-
     // Check for missing fields before processing
     if (!tagline || !tittle || !subTittle || !image) {
       return res.status(400).json({ message: "All fields are required." });

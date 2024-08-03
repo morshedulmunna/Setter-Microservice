@@ -82,4 +82,11 @@
   "url": "/api/v1/uploads/heros/1722660915093-background-with-red-blood-splatter-design-vector.jpg",
   "message": "Can't find /api/v1/uploads/heros/1722660915093-background-with-red-blood-splatter-design-vector.jpg on this server!",
   "timestamp": "2024-08-03T04:59:20.412Z"
+}{
+  "errorId": 1722662945039,
+  "status": "fail",
+  "statusCode": 404,
+  "url": "/api/v1/service",
+  "message": "Can't find /api/v1/service on this server!",
+  "timestamp": "2024-08-03T05:29:05.039Z"
 }
