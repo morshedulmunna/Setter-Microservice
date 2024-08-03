@@ -11,7 +11,6 @@ const heroSchema = new mongoose.Schema({
   },
   image: {
     type: String,
-    required: true,
   },
   subTittle: {
     type: String,

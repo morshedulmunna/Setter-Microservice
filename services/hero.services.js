@@ -4,11 +4,22 @@ const Hero = require("../models/hero.model");
 // Create a new hero
 exports.createHero = async (req, res) => {
   try {
+    const { tagline, tittle, subTittle } = req.body;
+
+    console.log(req.body);
+
+    // Check for missing fields before processing
+    if (!tagline || !tittle || !subTittle) {
+      // Return an error response if any required field is missing
+      return res.status(400).json({ message: "All fields are required." });
+    }
+
     const newHero = new Hero(req.body);
     await newHero.save();
     res.status(201).json(newHero);
   } catch (error) {
     throw new AppError(error.message, 400);
+    console.log(error);
   }
 };
 

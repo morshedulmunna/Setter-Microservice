@@ -3,8 +3,7 @@ const { AppError } = require("../libs/error");
 const router = express.Router();
 
 router.get("/", (req, res) => {
-  // res.status(200).json({ message: "Server is running" });
-  throw new AppError("Server Error", 500);
+  res.status(200).json({ message: "Server is running" });
 });
 
 router.get("/health", (req, res) => {
