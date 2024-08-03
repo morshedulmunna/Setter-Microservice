@@ -6,9 +6,7 @@ const {
   updateHero,
   deleteHero,
 } = require("../services/hero.services");
-
 const router = require("express").Router();
-
 const upload = createMulterInstance("./uploads/heros");
 
 router.post("/heroes", upload.single("image"), createHero);
