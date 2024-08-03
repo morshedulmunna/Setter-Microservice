@@ -1,3 +1,4 @@
+const { BACKEND_HOST } = require("../constant");
 const { AppError } = require("../libs/error");
 const Hero = require("../models/hero.model");
 
@@ -5,22 +6,25 @@ const Hero = require("../models/hero.model");
 exports.createHero = async (req, res) => {
   try {
     const { tagline, tittle, subTittle } = req.body;
-
-    console.log(req.body, req.file);
-
     const image = req.file;
+
+    console.log(image);
 
     // Check for missing fields before processing
     if (!tagline || !tittle || !subTittle || !image) {
       return res.status(400).json({ message: "All fields are required." });
     }
 
-    const newHero = new Hero(req.body);
+    const newHero = new Hero({
+      tagline,
+      tittle,
+      subTittle,
+      image: `${BACKEND_HOST}/uploads/heros/${image.filename}`,
+    });
     await newHero.save();
     res.status(201).json(newHero);
   } catch (error) {
     throw new AppError(error.message, 400);
-    console.log(error);
   }
 };
 

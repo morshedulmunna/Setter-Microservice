@@ -13,6 +13,7 @@ const port = process.env.PORT || 8080;
 const app = express();
 
 app.use(express.json());
+app.use("/uploads", express.static("uploads"));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
