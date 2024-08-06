@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const path = require("path");
+const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const routes = require("./routes");
 const { globalErrorHandler, AppError } = require("./libs/error");
@@ -10,8 +11,16 @@ const errorLogStream = require("./logs");
 
 const port = process.env.PORT || 8080;
 
+const origins = ["http://localhost:3000"];
+
+const corsOptions = {
+  origin: origins,
+  credentials: true,
+};
+
 const app = express();
 
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use("/uploads", express.static("uploads"));
 app.use(express.urlencoded({ extended: false }));

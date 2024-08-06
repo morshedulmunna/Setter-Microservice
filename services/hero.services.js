@@ -29,7 +29,7 @@ exports.createHero = async (req, res) => {
 // Get all heroes
 exports.getHeroes = async (req, res) => {
   try {
-    const heroes = await Hero.find();
+    const heroes = await Hero.find({}).sort({ createdAt: -1 });
     res.status(200).json(heroes);
   } catch (error) {
     throw new AppError(error.message, 400);
@@ -63,7 +63,7 @@ exports.updateHero = async (req, res) => {
 // Delete a hero
 exports.deleteHero = async (req, res) => {
   try {
-    const deletedHero = await Hero.findByIdAndDelete(req.params.id);
+    const deletedHero = await Hero.deleteMany();
     if (!deletedHero) {
       throw new AppError("Hero section not found", 400);
     }
