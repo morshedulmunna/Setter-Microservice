@@ -28,8 +28,20 @@ exports.createCompanyService = async (req, res) => {
 // Get all heroes
 exports.getServices = async (req, res) => {
   try {
-    const services = await CompanyService.find();
+    const services = await CompanyService.find().sort({ createdAt: -1 });
     res.status(200).json(services);
+  } catch (error) {
+    throw new AppError(error.message, 400);
+  }
+};
+
+exports.deleteService = async (req, res) => {
+  try {
+    const deletedService = await CompanyService.deleteMany();
+    if (!deletedService) {
+      throw new AppError("Service section not found", 400);
+    }
+    res.status(200).json({ message: "Service deleted" });
   } catch (error) {
     throw new AppError(error.message, 400);
   }

@@ -5,4 +5,53 @@
   "url": "/favicon.ico",
   "message": "Can't find /favicon.ico on this server!",
   "timestamp": "2024-08-06T06:07:11.819Z"
+}{
+  "errorId": 1722925323086,
+  "status": "fail",
+  "statusCode": 404,
+  "url": "/uploads/service/1722925321523-Icon",
+  "message": "Can't find /uploads/service/1722925321523-Icon on this server!",
+  "timestamp": "2024-08-06T06:22:03.086Z"
+}{
+  "errorId": 1722928457499,
+  "status": "fail",
+  "statusCode": 404,
+  "url": "/api/v1/testimonial",
+  "message": "Can't find /api/v1/testimonial on this server!",
+  "timestamp": "2024-08-06T07:14:17.499Z"
+}{
+  "errorId": 1722928496699,
+  "status": "error",
+  "statusCode": 500,
+  "url": "/api/v1/testimonial",
+  "message": "Unexpected field",
+  "timestamp": "2024-08-06T07:14:56.699Z"
+}{
+  "errorId": 1722928565652,
+  "status": "error",
+  "statusCode": 500,
+  "url": "/api/v1/testimonial",
+  "message": "Unexpected field",
+  "timestamp": "2024-08-06T07:16:05.652Z"
+}{
+  "errorId": 1722928607091,
+  "status": "error",
+  "statusCode": 500,
+  "url": "/api/v1/testimonial",
+  "message": "Unexpected field",
+  "timestamp": "2024-08-06T07:16:47.091Z"
+}{
+  "errorId": 1722928779215,
+  "status": "error",
+  "statusCode": 500,
+  "url": "/api/v1/testimonial",
+  "message": "Unexpected field",
+  "timestamp": "2024-08-06T07:19:39.215Z"
+}{
+  "errorId": 1722929048767,
+  "status": "error",
+  "statusCode": 500,
+  "url": "/api/v1/testimonial",
+  "message": "Unexpected field",
+  "timestamp": "2024-08-06T07:24:08.767Z"
 }
