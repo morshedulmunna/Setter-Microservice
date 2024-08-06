@@ -1,0 +1,8 @@
+{
+  "errorId": 1722924431819,
+  "status": "fail",
+  "statusCode": 404,
+  "url": "/favicon.ico",
+  "message": "Can't find /favicon.ico on this server!",
+  "timestamp": "2024-08-06T06:07:11.819Z"
+}
