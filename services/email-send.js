@@ -25,15 +25,19 @@ exports.sentEmail = async (req, res) => {
         html: data,
       };
 
-      transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-          console.log(error);
-          res.status(500).send({ error: "Failed to send email" });
-        } else {
-          console.log("Email sent: " + info.response);
-          res.status(200).send({ message: "Email sent successfully" });
-        }
-      });
+      try {
+        transporter.sendMail(mailOptions, (error, info) => {
+          if (error) {
+            console.log(error);
+            res.status(500).send({ error: "Failed to send email" });
+          } else {
+            console.log("Email sent: " + info.response);
+            res.status(200).send({ message: "Email sent successfully" });
+          }
+        });
+      } catch (error) {
+        res.status(500).send({ error: "Failed to send email try again!" });
+      }
     }
   );
 };
