@@ -5,4 +5,5 @@ module.exports = function (app) {
   app.use(`${version}`, require("./hero.js"));
   app.use(`${version}`, require("./service.js"));
   app.use(`${version}`, require("./testimonial.js"));
+  app.use(`${version}`, require("./topProduct.js"));
 };
