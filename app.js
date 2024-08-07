@@ -22,6 +22,7 @@ const app = express();
 
 app.use(cors(corsOptions));
 app.use(express.json());
+app.set("view engine", "ejs");
 app.use("/uploads", express.static("uploads"));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());

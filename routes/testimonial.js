@@ -1,6 +1,4 @@
 const createMulterInstance = require("../common/multile-fileupload");
-const { getServices, deleteService } = require("../services/company.services");
-const { createCompanyService } = require("../services/company.services");
 const {
   createTestimonial,
   getAllTestimonials,
