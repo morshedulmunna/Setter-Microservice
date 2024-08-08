@@ -1,0 +1,22 @@
+{
+  "errorId": 1723136584836,
+  "status": "error",
+  "statusCode": 500,
+  "url": "/api/v1/testimonial",
+  "message": "Unexpected field",
+  "timestamp": "2024-08-08T17:03:04.836Z"
+}{
+  "errorId": 1723137174130,
+  "status": "fail",
+  "statusCode": 404,
+  "url": "/favicon.ico",
+  "message": "Can't find /favicon.ico on this server!",
+  "timestamp": "2024-08-08T17:12:54.130Z"
+}{
+  "errorId": 1723137426712,
+  "status": "fail",
+  "statusCode": 404,
+  "url": "/api/v1/top-product",
+  "message": "Can't find /api/v1/top-product on this server!",
+  "timestamp": "2024-08-08T17:17:06.712Z"
+}
