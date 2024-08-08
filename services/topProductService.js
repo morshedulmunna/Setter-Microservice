@@ -4,11 +4,12 @@ const TopProduct = require("../models/topProduct.model");
 
 exports.createCompanyService = async (req, res) => {
   try {
-    const { photos, features, description, title } = req.body;
+    const { photos, features, isContentAvailable, description, title } =
+      req.body;
     const files = req.files;
 
     // Check for missing fields
-    if (!title || !description || !files || !files.product_logo) {
+    if (!files.product_logo || !isContentAvailable) {
       return res
         .status(400)
         .json({ message: "All required fields must be provided." });
@@ -42,12 +43,53 @@ exports.createCompanyService = async (req, res) => {
   }
 };
 
-exports.getAllTopProduct = async (req, res) => {
+exports.getAllTopProduct = async (req, res, next) => {
   try {
-    const topProductList = await TopProduct.find().sort({ createdAt: -1 });
-    res.status(200).json(topProductList);
+    // Destructure query parameters
+    const {
+      page = 1,
+      limit = 10,
+      search = "",
+      sortBy = "createdAt",
+      sortOrder = -1,
+    } = req.query;
+
+    // Create a search query based on provided search term
+    const searchQuery = search
+      ? {
+          $or: [
+            { name: { $regex: search, $options: "i" } }, // Assuming `name` is a field in your schema
+            { description: { $regex: search, $options: "i" } }, // Assuming `description` is a field in your schema
+          ],
+        }
+      : {};
+
+    // Convert `page` and `limit` to integers
+    const pageNumber = parseInt(page);
+    const limitNumber = parseInt(limit);
+
+    // Calculate the number of items to skip
+    const skip = (pageNumber - 1) * limitNumber;
+
+    // Fetch the filtered and paginated product list
+    const topProductList = await TopProduct.find(searchQuery)
+      .sort({ [sortBy]: sortOrder }) // Sort based on sortBy field and sortOrder
+      .skip(skip)
+      .limit(limitNumber);
+
+    // Get the total number of items for pagination
+    const totalItems = await TopProduct.countDocuments(searchQuery);
+
+    // Prepare the response with pagination details
+    res.status(200).json({
+      totalItems,
+      totalPages: Math.ceil(totalItems / limitNumber),
+      currentPage: pageNumber,
+      itemsPerPage: limitNumber,
+      topProductList,
+    });
   } catch (error) {
-    throw new AppError(error.message, 400);
+    next(new AppError(error.message, 400));
   }
 };
 

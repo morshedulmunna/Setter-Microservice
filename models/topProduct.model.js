@@ -8,22 +8,23 @@ const topProductSchema = new mongoose.Schema(
     },
     title: {
       type: String,
-      required: true,
     },
     description: {
       type: String,
-      required: false,
       default: null,
     },
     features: {
       type: Array,
-      required: true,
       default: [],
     },
     photos: {
       type: Array,
-      required: true,
       default: [],
+    },
+    isContentAvailable: {
+      type: Boolean,
+      required: true,
+      default: false,
     },
   },
   {
