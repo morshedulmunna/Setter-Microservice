@@ -6,38 +6,24 @@ const topProductSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    tittle: {
+    title: {
       type: String,
       required: true,
     },
     description: {
       type: String,
+      required: false,
+      default: null,
     },
     features: {
-      type: [
-        {
-          description: {
-            type: String,
-            required: true,
-          },
-        },
-      ],
+      type: Array,
       required: true,
+      default: [],
     },
     photos: {
-      type: [
-        {
-          url: {
-            type: String,
-            required: true,
-          },
-          caption: {
-            type: String,
-            required: false,
-          },
-        },
-      ],
+      type: Array,
       required: true,
+      default: [],
     },
   },
   {
