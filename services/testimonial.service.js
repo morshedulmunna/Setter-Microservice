@@ -7,7 +7,6 @@ exports.createTestimonial = async (req, res) => {
   try {
     const { comment, name, designation } = req.body;
     const icon = req.files;
-    console.log(icon.company_logo);
 
     // Check for missing fields before processing
     if (!comment || !name) {

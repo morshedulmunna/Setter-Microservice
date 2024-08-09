@@ -124,4 +124,11 @@
   "url": "/uploads/service/1723138316603-Travel-Planner%201.png",
   "message": "Can't find /uploads/service/1723138316603-Travel-Planner%201.png on this server!",
   "timestamp": "2024-08-09T04:45:36.272Z"
+}{
+  "errorId": 1723191345580,
+  "status": "fail",
+  "statusCode": 400,
+  "url": "/api/v1/top-product",
+  "message": "Invalid database name: 'iheartzDB/'",
+  "timestamp": "2024-08-09T08:15:45.580Z"
 }
