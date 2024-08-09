@@ -4,8 +4,7 @@ const TopProduct = require("../models/topProduct.model");
 
 exports.createCompanyService = async (req, res) => {
   try {
-    const { photos, features, isContentAvailable, description, title } =
-      req.body;
+    const { features, isContentAvailable, description, title } = req.body;
     const files = req.files;
 
     // Check for missing fields
@@ -16,10 +15,10 @@ exports.createCompanyService = async (req, res) => {
     }
 
     // Prepare the paths for uploaded files
-    const productLogoPath = `${BACKEND_HOST}/uploads/service/${files.product_logo[0].filename}`;
+    const productLogoPath = `${BACKEND_HOST}/uploads/top-products/${files.product_logo[0].filename}`;
     const photoPaths = files.photos
       ? files.photos.map(
-          (file) => `${BACKEND_HOST}/uploads/service/${file.filename}`
+          (file) => `${BACKEND_HOST}/uploads/top-products/${file.filename}`
         )
       : [];
 
