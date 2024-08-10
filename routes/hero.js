@@ -13,6 +13,6 @@ router.post("/heroes", upload.single("image"), createHero);
 router.get("/heroes", getHeroes);
 router.get("/heroes/:id", getHeroById);
 router.put("/heroes/:id", updateHero);
-router.delete("/heroes", deleteHero);
+router.delete("/heroes/:id", deleteHero);
 
 module.exports = router;

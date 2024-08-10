@@ -61,14 +61,14 @@ exports.updateHero = async (req, res) => {
 };
 
 // Delete a hero
-exports.deleteHero = async (req, res) => {
+exports.deleteHero = async (req, res, next) => {
   try {
-    const deletedHero = await Hero.deleteMany();
+    const deletedHero = await Hero.findByIdAndDelete(req.params.id);
     if (!deletedHero) {
-      throw new AppError("Hero section not found", 400);
+      return res.status(404).json({ message: "Hero section not found" });
     }
     res.status(200).json({ message: "Hero deleted" });
   } catch (error) {
-    throw new AppError(error.message, 400);
+    next(new AppError(error.message, 500));
   }
 };
