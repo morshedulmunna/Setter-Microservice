@@ -1,4 +1,5 @@
 const createMulterInstance = require("../common/multile-fileupload");
+const authMiddleware = require("../middleware/authMiddleware");
 const {
   createTestimonial,
   getAllTestimonials,
@@ -9,6 +10,7 @@ const upload = createMulterInstance("./uploads/testimonial");
 
 router.post(
   "/testimonial",
+  authMiddleware,
   upload.fields([
     { name: "company_logo", maxCount: 1 },
     { name: "profile_image", maxCount: 1 },
@@ -18,6 +20,6 @@ router.post(
 router.get("/testimonial", getAllTestimonials);
 // router.get("/service/:id", );
 // router.put("/service/:id", );
-router.delete("/testimonial", deleteAllTestimonial);
+router.delete("/testimonial", authMiddleware, deleteAllTestimonial);
 
 module.exports = router;
