@@ -37,7 +37,9 @@ exports.getServices = async (req, res) => {
 
 exports.deleteService = async (req, res) => {
   try {
-    const deletedService = await CompanyService.deleteMany();
+    const deletedService = await CompanyService.findByIdAndDelete(
+      req.params.id
+    );
     if (!deletedService) {
       throw new AppError("Service section not found", 400);
     }

@@ -14,6 +14,6 @@ router.post(
 router.get("/service", getServices);
 // router.get("/service/:id", );
 // router.put("/service/:id", );
-router.delete("/service", authMiddleware, deleteService);
+router.delete("/service/:id", authMiddleware, deleteService);
 
 module.exports = router;

@@ -1,0 +1,8 @@
+{
+  "errorId": 1723388524377,
+  "status": "fail",
+  "statusCode": 404,
+  "url": "/api/v1/service/66b8d18585199c7bbb58e3aa",
+  "message": "Can't find /api/v1/service/66b8d18585199c7bbb58e3aa on this server!",
+  "timestamp": "2024-08-11T15:02:04.377Z"
+}
