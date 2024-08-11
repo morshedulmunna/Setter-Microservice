@@ -40,7 +40,9 @@ exports.getAllTestimonials = async (req, res) => {
 
 exports.deleteAllTestimonial = async (req, res) => {
   try {
-    const deleteAllTestimonial = await Testimonial.deleteMany();
+    const deleteAllTestimonial = await Testimonial.findByIdAndDelete(
+      req.params.id
+    );
     if (!deleteAllTestimonial) {
       throw new AppError("Testimonial section not found", 400);
     }

@@ -20,6 +20,6 @@ router.post(
 router.get("/testimonial", getAllTestimonials);
 // router.get("/service/:id", );
 // router.put("/service/:id", );
-router.delete("/testimonial", authMiddleware, deleteAllTestimonial);
+router.delete("/testimonial/:id", authMiddleware, deleteAllTestimonial);
 
 module.exports = router;
