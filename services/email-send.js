@@ -1,43 +1,34 @@
-const { transporter } = require("../configs/nodeMailer.config");
+const nodemailer = require("nodemailer");
 const ejs = require("ejs");
 const path = require("path");
 
-exports.sentEmail = async (req, res) => {
-  const { name, email, subject, message } = req.body;
+class SendMailService {
+  async sendEmail(options) {
+    const transporter = nodemailer.createTransport({
+      host: process.env.SMTP_HOST,
+      port: parseInt(process.env.SMTP_PORT || "587"),
+      service: process.env.SMTP_SERVICE,
+      auth: {
+        user: process.env.SMTP_MAIL,
+        pass: process.env.SMTP_PASS,
+      },
+    });
 
-  console.log("Sent email data_", req.body);
+    const { data, email, subject, template } = options;
 
-  // Render the EJS template with the form data
-  ejs.renderFile(
-    path.join("views", "../templates/emailTemplate.ejs"),
-    { name, email, subject, message },
-    (err, data) => {
-      if (err) {
-        console.log(err);
-        res.status(500).send({ error: "Failed to render email template" });
-        return;
-      }
+    const templatePath = process.cwd() + "/templates/" + template;
 
-      const mailOptions = {
-        from: email,
-        to: "recipient-email@example.com",
-        subject: subject,
-        html: data,
-      };
+    const html = await ejs.renderFile(templatePath, data);
 
-      try {
-        transporter.sendMail(mailOptions, (error, info) => {
-          if (error) {
-            console.log(error);
-            res.status(500).send({ error: "Failed to send email" });
-          } else {
-            console.log("Email sent: " + info.response);
-            res.status(200).send({ message: "Email sent successfully" });
-          }
-        });
-      } catch (error) {
-        res.status(500).send({ error: "Failed to send email try again!" });
-      }
-    }
-  );
-};
+    const mailOptions = {
+      from: process.env.SMTP_MAIL,
+      to: email,
+      subject,
+      html,
+    };
+
+    await transporter.sendMail(mailOptions);
+  }
+}
+
+module.exports = SendMailService;
