@@ -49,11 +49,21 @@ exports.getHeroById = async (req, res) => {
 
 // Update a hero
 exports.updateHero = async (req, res) => {
+  console.log(req.body, req.file);
   try {
-    const updatedHero = await Hero.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
+    const { tagline, tittle, subTittle, image } = req.body;
+    const imageFile = req.file;
+    const updatedHero = await Hero.findByIdAndUpdate(req.params.id, {
+      tagline,
+      tittle,
+      subTittle,
+      image: imageFile
+        ? `${BACKEND_HOST}/uploads/heros/${imageFile.filename}`
+        : image,
     });
+
     if (!updatedHero) throw new AppError("Hero section not found", 400);
+
     res.status(200).json(updatedHero);
   } catch (error) {
     throw new AppError(error.message, 400);
