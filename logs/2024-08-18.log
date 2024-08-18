@@ -1,0 +1,64 @@
+{
+  "errorId": 1723998564287,
+  "status": "fail",
+  "statusCode": 404,
+  "url": "/uploads/heros/1723998481462-OIP.jfif",
+  "message": "Can't find /uploads/heros/1723998481462-OIP.jfif on this server!",
+  "timestamp": "2024-08-18T16:29:24.287Z"
+}{
+  "errorId": 1724000683887,
+  "status": "fail",
+  "statusCode": 404,
+  "url": "/api/v1/serviceundefined",
+  "message": "Can't find /api/v1/serviceundefined on this server!",
+  "timestamp": "2024-08-18T17:04:43.887Z"
+}{
+  "errorId": 1724000733558,
+  "status": "fail",
+  "statusCode": 404,
+  "url": "/api/v1/serviceundefined",
+  "message": "Can't find /api/v1/serviceundefined on this server!",
+  "timestamp": "2024-08-18T17:05:33.558Z"
+}{
+  "errorId": 1724001242694,
+  "status": "fail",
+  "statusCode": 404,
+  "url": "/uploads/heros/1724001242417-WhatsApp%20Image%202024-07-12%20at%201.59.46%20PM.jpeg",
+  "message": "Can't find /uploads/heros/1724001242417-WhatsApp%20Image%202024-07-12%20at%201.59.46%20PM.jpeg on this server!",
+  "timestamp": "2024-08-18T17:14:02.695Z"
+}{
+  "errorId": 1724001333558,
+  "status": "fail",
+  "statusCode": 404,
+  "url": "/uploads/heros/1724001242417-WhatsApp%20Image%202024-07-12%20at%201.59.46%20PM.jpeg",
+  "message": "Can't find /uploads/heros/1724001242417-WhatsApp%20Image%202024-07-12%20at%201.59.46%20PM.jpeg on this server!",
+  "timestamp": "2024-08-18T17:15:33.558Z"
+}{
+  "errorId": 1724001341564,
+  "status": "fail",
+  "statusCode": 404,
+  "url": "/uploads/heros/1724001341299-OIP.jfif",
+  "message": "Can't find /uploads/heros/1724001341299-OIP.jfif on this server!",
+  "timestamp": "2024-08-18T17:15:41.564Z"
+}{
+  "errorId": 1724001357661,
+  "status": "fail",
+  "statusCode": 404,
+  "url": "/uploads/heros/1724001341299-OIP.jfif",
+  "message": "Can't find /uploads/heros/1724001341299-OIP.jfif on this server!",
+  "timestamp": "2024-08-18T17:15:57.661Z"
+}{
+  "errorId": 1724001365698,
+  "status": "fail",
+  "statusCode": 404,
+  "url": "/uploads/heros/1724001365427-WhatsApp%20Image%202024-07-12%20at%201.59.46%20PM.jpeg",
+  "message": "Can't find /uploads/heros/1724001365427-WhatsApp%20Image%202024-07-12%20at%201.59.46%20PM.jpeg on this server!",
+  "timestamp": "2024-08-18T17:16:05.698Z"
+}{
+  "errorId": 1724001448607,
+  "status": "fail",
+  "statusCode": 404,
+  "url": "/uploads/heros/1724001365427-WhatsApp%20Image%202024-07-12%20at%201.59.46%20PM.jpeg",
+  "message": "Can't find /uploads/heros/1724001365427-WhatsApp%20Image%202024-07-12%20at%201.59.46%20PM.jpeg on this server!",
+  "timestamp": "2024-08-18T17:17:28.607Z"
+}

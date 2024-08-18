@@ -35,6 +35,30 @@ exports.getServices = async (req, res) => {
   }
 };
 
+exports.updateService = async (req, res) => {
+  try {
+    const { tittle, description, icon } = req.body;
+    const iconFile = req.file;
+
+    const updatedService = await CompanyService.findByIdAndUpdate(
+      req.params.id,
+      {
+        tittle,
+        description,
+        icon: iconFile
+          ? `${BACKEND_HOST}/uploads/service/${iconFile.filename}`
+          : icon,
+      }
+    );
+
+    if (!updatedService) throw new AppError("Service section not found", 400);
+
+    res.status(200).json(updatedService);
+  } catch (error) {
+    throw new AppError("Something Wrong", 400);
+  }
+};
+
 exports.deleteService = async (req, res) => {
   try {
     const deletedService = await CompanyService.findByIdAndDelete(
