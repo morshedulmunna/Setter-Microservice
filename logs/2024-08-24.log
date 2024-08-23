@@ -1,0 +1,15 @@
+{
+  "errorId": 1724436293651,
+  "status": "fail",
+  "statusCode": 404,
+  "url": "/api/v1/book",
+  "message": "Can't find /api/v1/book on this server!",
+  "timestamp": "2024-08-23T18:04:53.651Z"
+}{
+  "errorId": 1724436309905,
+  "status": "error",
+  "statusCode": 500,
+  "url": "/api/v1/booked",
+  "message": "Cannot read properties of undefined (reading 'replace')",
+  "timestamp": "2024-08-23T18:05:09.905Z"
+}
