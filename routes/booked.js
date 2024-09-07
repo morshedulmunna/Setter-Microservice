@@ -17,8 +17,11 @@ router.post("/booked", async (req, res) => {
 
 // Get all bookings
 router.get("/booked", authMiddleware, async (req, res) => {
+  const page = parseInt(req.query.page) || 1; // Default to page 1
+  const limit = parseInt(req.query.limit) || 10; // Default to 10 items per page
+
   try {
-    const bookings = await bookingService.getAllBookings();
+    const bookings = await bookingService.getAllBookings(page, limit);
     res.status(200).json(bookings);
   } catch (error) {
     res.status(500).json({ message: error.message });
