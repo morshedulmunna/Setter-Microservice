@@ -9,4 +9,5 @@ module.exports = function (app) {
   app.use(`${version}`, require("./topProduct.js"));
   app.use(`${version}`, require("./send-email.js"));
   app.use(`${version}`, require("./booked.js"));
+  app.use(`${version}`, require("./contactUpdate.js"));
 };
