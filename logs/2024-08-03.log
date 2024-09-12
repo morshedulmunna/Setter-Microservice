@@ -1,0 +1,92 @@
+{
+  "errorId": 1722660302263,
+  "status": "fail",
+  "statusCode": 404,
+  "url": "/api/v1//uploads/heros/1722660286861-background-with-red-blood-splatter-design-vector.jpg",
+  "message": "Can't find /api/v1//uploads/heros/1722660286861-background-with-red-blood-splatter-design-vector.jpg on this server!",
+  "timestamp": "2024-08-03T04:45:02.263Z"
+}{
+  "errorId": 1722660302522,
+  "status": "fail",
+  "statusCode": 404,
+  "url": "/favicon.ico",
+  "message": "Can't find /favicon.ico on this server!",
+  "timestamp": "2024-08-03T04:45:02.522Z"
+}{
+  "errorId": 1722660339470,
+  "status": "fail",
+  "statusCode": 404,
+  "url": "/api/v1/uploads/heros/1722660330549-background-with-red-blood-splatter-design-vector.jpg",
+  "message": "Can't find /api/v1/uploads/heros/1722660330549-background-with-red-blood-splatter-design-vector.jpg on this server!",
+  "timestamp": "2024-08-03T04:45:39.470Z"
+}{
+  "errorId": 1722660423669,
+  "status": "fail",
+  "statusCode": 404,
+  "url": "/uploads/heros/1722660330549-background-with-red-blood-splatter-design-vector.jpg",
+  "message": "Can't find /uploads/heros/1722660330549-background-with-red-blood-splatter-design-vector.jpg on this server!",
+  "timestamp": "2024-08-03T04:47:03.669Z"
+}{
+  "errorId": 1722660438005,
+  "status": "fail",
+  "statusCode": 404,
+  "url": "/api/v1//uploads/heros/1722660286861-background-with-red-blood-splatter-design-vector.jpg",
+  "message": "Can't find /api/v1//uploads/heros/1722660286861-background-with-red-blood-splatter-design-vector.jpg on this server!",
+  "timestamp": "2024-08-03T04:47:18.005Z"
+}{
+  "errorId": 1722660996694,
+  "status": "fail",
+  "statusCode": 404,
+  "url": "/api/v1/uploads/heros/1722660915093-background-with-red-blood-splatter-design-vector.jpg",
+  "message": "Can't find /api/v1/uploads/heros/1722660915093-background-with-red-blood-splatter-design-vector.jpg on this server!",
+  "timestamp": "2024-08-03T04:56:36.694Z"
+}{
+  "errorId": 1722661003433,
+  "status": "fail",
+  "statusCode": 404,
+  "url": "/uploads/heros/1722660915093-background-with-red-blood-splatter-design-vector.jpg",
+  "message": "Can't find /uploads/heros/1722660915093-background-with-red-blood-splatter-design-vector.jpg on this server!",
+  "timestamp": "2024-08-03T04:56:43.433Z"
+}{
+  "errorId": 1722661108276,
+  "status": "fail",
+  "statusCode": 404,
+  "url": "/uploads/heros/1722660915093-background-with-red-blood-splatter-design-vector.jpg",
+  "message": "Can't find /uploads/heros/1722660915093-background-with-red-blood-splatter-design-vector.jpg on this server!",
+  "timestamp": "2024-08-03T04:58:28.276Z"
+}{
+  "errorId": 1722661108979,
+  "status": "fail",
+  "statusCode": 404,
+  "url": "/uploads/heros/1722660915093-background-with-red-blood-splatter-design-vector.jpg",
+  "message": "Can't find /uploads/heros/1722660915093-background-with-red-blood-splatter-design-vector.jpg on this server!",
+  "timestamp": "2024-08-03T04:58:28.979Z"
+}{
+  "errorId": 1722661109514,
+  "status": "fail",
+  "statusCode": 404,
+  "url": "/uploads/heros/1722660915093-background-with-red-blood-splatter-design-vector.jpg",
+  "message": "Can't find /uploads/heros/1722660915093-background-with-red-blood-splatter-design-vector.jpg on this server!",
+  "timestamp": "2024-08-03T04:58:29.514Z"
+}{
+  "errorId": 1722661157227,
+  "status": "fail",
+  "statusCode": 404,
+  "url": "/api/v1/uploads/heros/1722660915093-background-with-red-blood-splatter-design-vector.jpg",
+  "message": "Can't find /api/v1/uploads/heros/1722660915093-background-with-red-blood-splatter-design-vector.jpg on this server!",
+  "timestamp": "2024-08-03T04:59:17.227Z"
+}{
+  "errorId": 1722661160412,
+  "status": "fail",
+  "statusCode": 404,
+  "url": "/api/v1/uploads/heros/1722660915093-background-with-red-blood-splatter-design-vector.jpg",
+  "message": "Can't find /api/v1/uploads/heros/1722660915093-background-with-red-blood-splatter-design-vector.jpg on this server!",
+  "timestamp": "2024-08-03T04:59:20.412Z"
+}{
+  "errorId": 1722662945039,
+  "status": "fail",
+  "statusCode": 404,
+  "url": "/api/v1/service",
+  "message": "Can't find /api/v1/service on this server!",
+  "timestamp": "2024-08-03T05:29:05.039Z"
+}

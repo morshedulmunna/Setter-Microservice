@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const path = require("path");
+const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const routes = require("./routes");
 const { globalErrorHandler, AppError } = require("./libs/error");
@@ -10,9 +11,19 @@ const errorLogStream = require("./logs");
 
 const port = process.env.PORT || 8080;
 
+const origins = ["http://localhost:3000"];
+
+const corsOptions = {
+  origin: origins,
+  credentials: true,
+};
+
 const app = express();
 
+app.use(cors(corsOptions));
 app.use(express.json());
+app.set("view engine", "ejs");
+app.use("/uploads", express.static("uploads"));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
@@ -29,7 +40,7 @@ const connectDatabase = async () => {
     setTimeout(connectDatabase, 5000);
   }
 };
-// connectDatabase();
+connectDatabase();
 // Routes
 routes(app);
 
@@ -41,8 +52,6 @@ app.all("/*", (req, res, next) => {
   );
   next(error);
 });
-
-// Create a write stream (in append mode) for the error log file
 
 // Configure Morgan to log errors
 app.use(

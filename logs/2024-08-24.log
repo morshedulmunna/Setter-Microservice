@@ -1,0 +1,29 @@
+{
+  "errorId": 1724436293651,
+  "status": "fail",
+  "statusCode": 404,
+  "url": "/api/v1/book",
+  "message": "Can't find /api/v1/book on this server!",
+  "timestamp": "2024-08-23T18:04:53.651Z"
+}{
+  "errorId": 1724436309905,
+  "status": "error",
+  "statusCode": 500,
+  "url": "/api/v1/booked",
+  "message": "Cannot read properties of undefined (reading 'replace')",
+  "timestamp": "2024-08-23T18:05:09.905Z"
+}{
+  "errorId": 1724436354505,
+  "status": "error",
+  "statusCode": 500,
+  "url": "/api/v1/booked",
+  "message": "Cannot read properties of undefined (reading 'replace')",
+  "timestamp": "2024-08-23T18:05:54.505Z"
+}{
+  "errorId": 1724436622866,
+  "status": "fail",
+  "statusCode": 404,
+  "url": "/uploads/testimonial/1724028510249-WhatsApp%20Image%202024-07-12%20at%201.59.46%20PM.jpeg",
+  "message": "Can't find /uploads/testimonial/1724028510249-WhatsApp%20Image%202024-07-12%20at%201.59.46%20PM.jpeg on this server!",
+  "timestamp": "2024-08-23T18:10:22.866Z"
+}
