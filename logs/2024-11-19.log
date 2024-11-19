@@ -33,4 +33,11 @@
   "url": "/api/v1/heroes",
   "message": "Can't find /api/v1/heroes on this server!",
   "timestamp": "2024-11-19T14:56:57.743Z"
+}{
+  "errorId": 1732034135671,
+  "status": "error",
+  "statusCode": 500,
+  "url": "/api/v1/top-product",
+  "message": "Cannot read properties of undefined (reading 'replace')",
+  "timestamp": "2024-11-19T16:35:35.671Z"
 }

@@ -29,6 +29,7 @@ exports.createCompanyService = async (req, res) => {
       description,
       features: features,
       photos: photoPaths,
+      isContentAvailable,
     });
 
     // Save the new service in the database
