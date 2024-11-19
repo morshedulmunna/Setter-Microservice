@@ -1,0 +1,36 @@
+{
+  "errorId": 1732027748686,
+  "status": "error",
+  "statusCode": 500,
+  "url": "/api/v1/heroes",
+  "message": "Cannot read properties of undefined (reading 'replace')",
+  "timestamp": "2024-11-19T14:49:08.686Z"
+}{
+  "errorId": 1732027901823,
+  "status": "error",
+  "statusCode": 500,
+  "url": "/api/v1/heroes",
+  "message": "Cannot read properties of undefined (reading 'replace')",
+  "timestamp": "2024-11-19T14:51:41.823Z"
+}{
+  "errorId": 1732027952634,
+  "status": "error",
+  "statusCode": 500,
+  "url": "/api/v1/heroes",
+  "message": "Cannot read properties of undefined (reading 'replace')",
+  "timestamp": "2024-11-19T14:52:32.634Z"
+}{
+  "errorId": 1732028086280,
+  "status": "error",
+  "statusCode": 500,
+  "url": "/api/v1/heroes",
+  "message": "Cannot read properties of undefined (reading 'replace')",
+  "timestamp": "2024-11-19T14:54:46.280Z"
+}{
+  "errorId": 1732028217743,
+  "status": "fail",
+  "statusCode": 404,
+  "url": "/api/v1/heroes",
+  "message": "Can't find /api/v1/heroes on this server!",
+  "timestamp": "2024-11-19T14:56:57.743Z"
+}
