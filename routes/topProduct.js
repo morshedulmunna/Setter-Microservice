@@ -3,7 +3,7 @@ const authMiddleware = require("../middleware/authMiddleware");
 const {
   createCompanyService,
   getAllTopProduct,
-  deleteAllTopProduct,
+  deleteSingleTopProduct,
 } = require("../services/topProductService");
 const router = require("express").Router();
 const upload = createMulterInstance("./uploads/top-products");
@@ -16,7 +16,12 @@ router.post(
 );
 router.get("/top-product", getAllTopProduct);
 // router.get("/service/:id", );
-// router.put("/service/:id", );
-router.delete("/top-product", authMiddleware, deleteAllTopProduct);
+router.put(
+  "/top-product/:id",
+  authMiddleware,
+  upload.fields([{ name: "product_logo", maxCount: 1 }, { name: "photos" }])
+  // updateService
+);
+router.delete("/top-product/:id", authMiddleware, deleteSingleTopProduct);
 
 module.exports = router;

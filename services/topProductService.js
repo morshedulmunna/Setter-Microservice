@@ -93,9 +93,11 @@ exports.getAllTopProduct = async (req, res, next) => {
   }
 };
 
-exports.deleteAllTopProduct = async (req, res) => {
+exports.deleteSingleTopProduct = async (req, res) => {
   try {
-    const deleteAllTopProduct = await TopProduct.deleteMany();
+    const deleteAllTopProduct = await TopProduct.findByIdAndDelete(
+      req.params.id
+    );
     if (!deleteAllTopProduct) {
       throw new AppError("Testimonial section not found", 400);
     }
