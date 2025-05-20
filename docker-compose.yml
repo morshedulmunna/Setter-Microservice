@@ -1,0 +1,68 @@
+services:
+  admin_web:
+    build:
+      context: ./admin_web
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3001:3000"
+    volumes:
+      - ./admin_web:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    restart: unless-stopped
+
+  public_web:
+    build:
+      context: ./public_web
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3002:3000"
+    volumes:
+      - ./public_web:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    restart: unless-stopped
+
+  order:
+    build:
+      context: ./order
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3003:3000"
+    volumes:
+      - ./order:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    restart: unless-stopped
+
+  product:
+    build:
+      context: ./product
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3004:3000"
+    volumes:
+      - ./product:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    restart: unless-stopped
+
+  user-auth:
+    build:
+      context: ./user-auth
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3005:3000"
+    volumes:
+      - ./user-auth:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    restart: unless-stopped
+
+volumes:
+  node_modules:

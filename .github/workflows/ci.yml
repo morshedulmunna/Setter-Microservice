@@ -1,0 +1,81 @@
+name: Microservices CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        service:
+          - admin_web
+          - order
+          - product
+          - public_web
+          - user-auth
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20.x"
+          cache: "npm"
+          cache-dependency-path: "${{ matrix.service }}/package-lock.json"
+
+      - name: Install Dependencies
+        working-directory: ${{ matrix.service }}
+        run: npm ci
+
+      - name: Lint
+        working-directory: ${{ matrix.service }}
+        run: npm run lint
+
+      - name: Type Check
+        working-directory: ${{ matrix.service }}
+        run: npm run typecheck
+
+      - name: Run Tests
+        working-directory: ${{ matrix.service }}
+        run: npm test
+
+  build-docker:
+    needs: lint-and-test
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        service:
+          - admin_web
+          - order
+          - product
+          - public_web
+          - user-auth
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build Docker Image
+        working-directory: ${{ matrix.service }}
+        run: docker build -f Dockerfile.dev .
+
+      - name: Docker Compose Validation
+        working-directory: ${{ matrix.service }}
+        run: docker-compose -f docker-compose.yml config
+
+  security-scan:
+    needs: build-docker
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/node@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          command: test
