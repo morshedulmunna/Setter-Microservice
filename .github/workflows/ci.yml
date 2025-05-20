@@ -12,10 +12,8 @@ jobs:
     strategy:
       matrix:
         service:
-          - admin_web
           - order
           - product
-          - public_web
           - user-auth
 
     steps:
@@ -50,10 +48,8 @@ jobs:
     strategy:
       matrix:
         service:
-          - admin_web
           - order
           - product
-          - public_web
           - user-auth
 
     steps:
