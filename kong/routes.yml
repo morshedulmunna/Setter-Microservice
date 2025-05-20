@@ -1,0 +1,36 @@
+services:
+  - name: user-auth-service
+    url: http://user-auth:3000
+    routes:
+      - name: user-auth-route
+        paths: 
+          - /api/auth
+          - /api/users
+
+  - name: product-service
+    url: http://product:3000
+    routes:
+      - name: product-route
+        paths: 
+          - /api/products
+
+  - name: order-service
+    url: http://order:3000
+    routes:
+      - name: order-route
+        paths: 
+          - /api/orders
+
+  - name: admin-web-service
+    url: http://admin_web:3000
+    routes:
+      - name: admin-route
+        paths: 
+          - /admin
+
+  - name: public-web-service
+    url: http://public_web:3000
+    routes:
+      - name: public-route
+        paths: 
+          - / 

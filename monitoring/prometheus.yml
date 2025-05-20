@@ -1,0 +1,24 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: 'kong'
+    static_configs:
+      - targets: ['kong-gateway:8001']
+
+  - job_name: 'user-auth'
+    static_configs:
+      - targets: ['user-auth:3000']
+
+  - job_name: 'product'
+    static_configs:
+      - targets: ['product:3000']
+
+  - job_name: 'order'
+    static_configs:
+      - targets: ['order:3000']
+
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090'] 

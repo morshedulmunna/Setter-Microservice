@@ -1,0 +1,60 @@
+version: "3.8"
+services:
+  kong-database:
+    image: postgres:13
+    container_name: kong-database
+    environment:
+      POSTGRES_DB: kong
+      POSTGRES_USER: kong
+      POSTGRES_PASSWORD: kong_secret
+    volumes:
+      - kong-db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "kong"]
+      interval: 30s
+      timeout: 30s
+      retries: 3
+
+  kong-migration:
+    image: kong/kong-gateway:3.4.1.0
+    container_name: kong-migration
+    environment:
+      KONG_DATABASE: postgres
+      KONG_PG_HOST: kong-database
+      KONG_PG_USER: kong
+      KONG_PG_PASSWORD: kong_secret
+    command: kong migrations bootstrap
+    depends_on:
+      - kong-database
+
+  kong-gateway:
+    image: kong/kong-gateway:3.4.1.0
+    container_name: kong-gateway
+    environment:
+      KONG_DATABASE: postgres
+      KONG_PG_HOST: kong-database
+      KONG_PG_USER: kong
+      KONG_PG_PASSWORD: kong_secret
+      KONG_PROXY_ACCESS_LOG: /dev/stdout
+      KONG_ADMIN_ACCESS_LOG: /dev/stdout
+      KONG_PROXY_ERROR_LOG: /dev/stderr
+      KONG_ADMIN_ERROR_LOG: /dev/stderr
+      KONG_ADMIN_LISTEN: 0.0.0.0:8001
+      KONG_ADMIN_GUI_URL: http://localhost:8002
+    ports:
+      - "8000:8000" # Kong Proxy
+      - "8443:8443" # Kong Proxy (HTTPS)
+      - "8001:8001" # Kong Admin API
+      - "8002:8002" # Kong Admin GUI
+      - "8444:8444" # Kong Admin API (HTTPS)
+    depends_on:
+      - kong-migration
+    healthcheck:
+      test: ["CMD", "kong", "health"]
+      interval: 30s
+      timeout: 30s
+      retries: 3
+
+volumes:
+  kong-db-data:
+    driver: local
