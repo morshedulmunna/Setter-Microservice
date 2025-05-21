@@ -4,39 +4,54 @@ services:
   url: http://user-auth:3000
   routes:
   - name: user-auth-route
+    hosts:
+    - api.executehub.com
     paths:
     - /api/auth
     - /api/users
     strip_path: true
+    https_redirect_status_code: 301
 
 - name: product-service
   url: http://product:3000
   routes:
   - name: product-route
+    hosts:
+    - api.executehub.com
     paths:
     - /api/products
     strip_path: true
+    https_redirect_status_code: 301
 
 - name: order-service
   url: http://order:3000
   routes:
   - name: order-route
+    hosts:
+    - api.executehub.com
     paths:
     - /api/orders
     strip_path: true
+    https_redirect_status_code: 301
 
 - name: admin-web-service
   url: http://admin_web:3000
   routes:
   - name: admin-route
+    hosts:
+    - admin.executehub.com
     paths:
-    - /admin
+    - /
     strip_path: true
+    https_redirect_status_code: 301
 
 - name: public-web-service
   url: http://public_web:3000
   routes:
   - name: public-route
+    hosts:
+    - executehub.com
     paths:
     - /
-    strip_path: true 
+    strip_path: true
+    https_redirect_status_code: 301 

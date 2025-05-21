@@ -1,0 +1,16 @@
+_format_version: "3.0"
+services:
+- name: ssl-redirect-service
+  routes:
+  - name: ssl-redirect-route
+    paths:
+    - /
+    https_redirect_status_code: 301
+    protocols: 
+    - http
+
+plugins:
+- name: ssl-redirect
+  config:
+    redirect_status_code: 301
+    https_port: 443 

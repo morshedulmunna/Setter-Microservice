@@ -88,14 +88,19 @@ services:
       KONG_ADMIN_ERROR_LOG: /dev/stderr
       KONG_ADMIN_LISTEN: 0.0.0.0:8001
       KONG_ADMIN_GUI_URL: http://localhost:8002
+      KONG_SSL: "on"
+      KONG_SSL_CERT: /etc/kong/ssl/executehub.com.crt
+      KONG_SSL_CERT_KEY: /etc/kong/ssl/executehub.com.key
+      KONG_PROXY_LISTEN: 0.0.0.0:8000, 0.0.0.0:8443 ssl
     ports:
-      - "8000:8000" # Kong Proxy
-      - "8443:8443" # Kong Proxy (HTTPS)
+      - "80:8000" # HTTP
+      - "443:8443" # HTTPS
       - "8001:8001" # Kong Admin API
       - "8002:8002" # Kong Admin GUI
       - "8444:8444" # Kong Admin API (HTTPS)
     volumes:
       - ./kong/kong.yml:/etc/kong/kong.yml
+      - ./kong/ssl:/etc/kong/ssl
     networks:
       - microservices_network
     restart: unless-stopped
